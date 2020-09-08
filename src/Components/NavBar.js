@@ -1,32 +1,34 @@
 import React, { useState, useContext } from "react";
 
-import { TodoContext } from "../TodoContext";
+// import { TodoContext } from "../TodoContext";
 
-export default function NavBar() {
+export default function NavBar(props) {
   const [menu, setMenu] = useState(false);
-  const [todos, setTodos] = useContext(TodoContext);
+  //commenting useContext out to test using Jest
+  // const [todos, setTodos] = useContext(TodoContext);
   const [value, setValue] = useState("");
+  const { todos, setTodos } = props;
 
-  const addTodo = e => {
+  const addTodo = (e) => {
     if (value !== "") {
       setTodos([
         ...todos,
         {
           id: Date.now(),
           value: value,
-          done: false
-        }
+          done: false,
+        },
       ]);
     }
   };
 
-  const handleSubmit = e => {
+  const handleSubmit = (e) => {
     addTodo();
     e.preventDefault();
     setValue("");
   };
 
-  const handleChange = e => {
+  const handleChange = (e) => {
     setValue(e.target.value);
   };
 

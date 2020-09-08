@@ -4,9 +4,11 @@ import { TodoContext } from "../TodoContext";
 
 import Todo from "./Todo";
 
-export default function TodoList() {
-  const [todos, setTodos] = useContext(TodoContext);
-
+export default function TodoList(props) {
+  //commenting useContext out to test using Jest
+  // const [todos, setTodos] = useContext(TodoContext);
+  const { todos, setTodos } = props;
+  //try with fn created outside of the TodoList component to check the work "this"
   // toggleDone
   const toggleDone = (todo) => {
     todos.map((_todo) => (_todo === todo ? (_todo.done = !todo.done) : todo));
