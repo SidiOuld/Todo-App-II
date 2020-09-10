@@ -67,7 +67,10 @@ export default function NavBar(props) {
                 />
               </p>
               <p className="control">
-                <button className="button is-info has-text-weight-bold">
+                <button
+                  type="submit"
+                  className="button is-info has-text-weight-bold"
+                >
                   Add-Todo
                 </button>
               </p>
